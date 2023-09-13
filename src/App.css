@@ -7,8 +7,9 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-#root {
+#root { 
   background-color: #9CCEF4;
+  height: 100vh;
 }
 
 .header {
