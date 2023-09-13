@@ -27,6 +27,9 @@ class App extends Component {
               <input type="text" name="" id="" />
               <button className="button">FIND WEATHER</button>
           </nav>
+          <section class="w-details">
+            
+          </section>
           </header>
         </main>
       </div>
