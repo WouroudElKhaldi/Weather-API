@@ -104,7 +104,7 @@ section.w-hour img {
 }
 
 /* Responsive for Mobile */
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   #root {
     height: auto;
   }
