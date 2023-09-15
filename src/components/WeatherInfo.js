@@ -1,16 +1,15 @@
 import { useEffect , useState } from 'react';
 import partlycloudy from '../img/weather-icons/partlycloudy.svg';
-import cloudy from '../img/weather-icons/cloudy.svg';
-import snow from '../img/weather-icons/snow.svg';
-import clear from '../img/weather-icons/clear.svg';
+import {icons} from './TransformFunctions';
 
 const WeatherInfo = ({weatherData}) => {
 
-const [minTemp, setMinTemp] = useState('min');
-const [maxTemp, setMaxTemp] = useState('max');
+const [minTemp, setMinTemp] = useState('');
+const [maxTemp, setMaxTemp] = useState('');
 const [humidity, setHumidity] = useState('');
 const [pressure, setPressure] = useState('');
-const [desc, setDesc] = useState("Description");
+const [desc, setDesc] = useState("");
+const [id , setId] = useState(null)
 
 useEffect(() =>{
   if (weatherData) {
@@ -21,13 +20,14 @@ useEffect(() =>{
     setHumidity(main.humidity);
     setPressure(main.pressure);
     setDesc(weatherInfo[0].description) ;
+    setId(weatherInfo[0].id) ;
   }
 }, [weatherData]);
     return(
         <section class="w-details">
             <div className="content">
               <div className="w-image">
-                <img src={partlycloudy} alt="Partly Cloudy" />
+                <img src={icons(id)} alt="Partly Cloudy" />
                 <p className="desc">{desc}</p>
               </div>
               <p className="temp">Temperature <span>{minTemp}&deg;C  to {maxTemp}&deg;C</span></p>
