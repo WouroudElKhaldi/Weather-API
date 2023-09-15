@@ -1,9 +1,8 @@
 import { useEffect , useState } from 'react';
-import partlycloudy from '../img/weather-icons/partlycloudy.svg';
 import {icons} from './TransformFunctions';
 
 const WeatherInfo = ({weatherData}) => {
-
+  
 const [minTemp, setMinTemp] = useState('');
 const [maxTemp, setMaxTemp] = useState('');
 const [humidity, setHumidity] = useState('');

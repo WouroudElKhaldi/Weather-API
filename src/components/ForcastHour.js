@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import partlycloudy from "../img/weather-icons/partlycloudy.svg";
 import { timeDisplay, icons} from "./TransformFunctions";
 
 const ForcastHour = ({weatherData}) => {
   const [time, setTime] = useState("0");
-  const [temp, setTemp] = useState("");
+  const [temp, setTemp] = useState("0");
   const [id , setId] = useState(null) ;
   useEffect(() => {
     if (weatherData) {

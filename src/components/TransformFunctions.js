@@ -50,5 +50,6 @@ export const icons = (id) => {
         case id <= 805:
         return `${mostlycloudy}`;
         break;
+        default:;
     }
 }

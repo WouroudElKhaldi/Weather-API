@@ -6,15 +6,16 @@ const Search = (props) => {
     setCity(e.target.value);
   }
 
-  const handleFindWeather = () => {
+  const handleFindWeather = (e) => {
+    e.preventDefault()
     props.onValueChange(city);
   } 
 
   return (
-      <nav className="nav">
+      <form className="nav" onSubmit={handleFindWeather}>
         <input type="text" placeholder="Type in a city here" value={city} onChange={handleInputChange}/>
-        <button className="button" onClick={handleFindWeather}>FIND WEATHER</button>
-      </nav>
+        <button className="button"  type="submit">FIND WEATHER</button>
+      </form>
   );
 }
 export default Search;
