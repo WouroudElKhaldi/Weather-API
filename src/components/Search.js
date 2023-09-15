@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-const Search = () => {
+const Search = (props) => {
   const [city, setCity] = useState("");
 
   const handleInputChange = (e) => {
@@ -7,7 +7,7 @@ const Search = () => {
   }
 
   const handleFindWeather = () => {
-    console.log("Searching weather for city:", city); // Print the city in the console  
+    props.onValueChange(city);
   } 
 
   return (

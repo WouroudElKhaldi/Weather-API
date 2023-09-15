@@ -1,18 +1,37 @@
+import { useEffect , useState } from 'react';
 import partlycloudy from '../img/weather-icons/partlycloudy.svg';
 import cloudy from '../img/weather-icons/cloudy.svg';
 import snow from '../img/weather-icons/snow.svg';
 import clear from '../img/weather-icons/clear.svg';
 
-const WeatherInfo = () => {
+const WeatherInfo = ({weatherData}) => {
+
+const [minTemp, setMinTemp] = useState('min');
+const [maxTemp, setMaxTemp] = useState('max');
+const [humidity, setHumidity] = useState('');
+const [pressure, setPressure] = useState('');
+const [desc, setDesc] = useState("Description");
+
+useEffect(() =>{
+  if (weatherData) {
+    const weather = weatherData.list[0] ;
+    const {main, weather: weatherInfo} = weather ;    
+    setMinTemp(main.temp_min);
+    setMaxTemp(main.temp_max);
+    setHumidity(main.humidity);
+    setPressure(main.pressure);
+    setDesc(weatherInfo[0].description) ;
+  }
+}, [weatherData]);
     return(
         <section class="w-details">
             <div className="content">
               <div className="w-image">
                 <img src={partlycloudy} alt="Partly Cloudy" />
-                <p className="desc">overcast clouds</p>
+                <p className="desc">{desc}</p>
               </div>
-              <p className="temp">Temperature <span>10&deg;C to 11&deg;C</span></p>
-              <p className="details"><span>Humidity</span> 78% <span>Pressure</span> 1008.48</p>
+              <p className="temp">Temperature <span>{minTemp}&deg;C  to {maxTemp}&deg;C</span></p>
+              <p className="details"><span>Humidity</span> {humidity}%<span>Pressure</span> {pressure}</p>
             </div>
           </section>
     )
