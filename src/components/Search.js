@@ -12,10 +12,12 @@ const Search = (props) => {
   } 
 
   return (
-      <form className="nav" onSubmit={handleFindWeather}>
-        <input type="text" placeholder="Type in a city here" value={city} onChange={handleInputChange}/>
-        <button className="button"  type="submit">FIND WEATHER</button>
-      </form>
+      <nav className="header__nav">
+        <form onSubmit={handleFindWeather}>
+          <input type="text" placeholder="Type in a city here" value={city} onChange={handleInputChange}/>
+          <button className="button"  type="submit">FIND WEATHER</button>
+        </form>
+      </nav>
   );
 }
 export default Search;

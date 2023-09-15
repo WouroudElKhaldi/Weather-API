@@ -24,7 +24,7 @@ useEffect(() =>{
 }, [weatherData]);
     return(
         <section class="w-details">
-            <div className="content">
+            <div className="w-details__content">
               <div className="w-image">
                 <img src={icons(id)} alt="Partly Cloudy" />
                 <p className="desc">{desc}</p>
